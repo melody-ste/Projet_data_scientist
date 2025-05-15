@@ -40,12 +40,14 @@ end
 print "> "
 alphabetical_order(journalist)
 
+
 # Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
 def length_order(journalist)
   puts "Trié par taille : #{journalist.sort_by{|handle|handle.length}}."
 end
 print "> "
 length_order(journalist)
+
 
 # Quelle est la position dans l'array de la personne @epenser ?
 def find_handle(journalist,user)
@@ -54,10 +56,12 @@ end
 print "> "
 puts "@epenser ce trouve à la #{find_handle(journalist,"@epenser")}ème position."
 
+
 # Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 def hash_taille(journalist)
   hash = journalist.group_by {|handle| handle.length}
 end
+
 print "> "
 result =hash_taille(journalist)
 
