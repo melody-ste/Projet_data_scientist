@@ -4,13 +4,15 @@ journalist = ["@jcunniet","@PaulLampon","@Aziliz31","@ssoumier","@marionsouzeau"
 def handle_number(journalist)
 puts "Il y a #{journalist.length} handles."
 end 
+print "> "
 handle_number(journalist)
 
 
 # Quel est le handle le plus court de cette liste ?
 def short_handle(journalist)
-puts "Le handle le plus court est #{journalist.min_by{|handle|handle.length}}." #min_by = le plus petit par {|obj| obj.length}
+  puts "Le handle le plus court est #{journalist.min_by{|handle|handle.length}}." #min_by = le plus petit par {|obj| obj.length}
 end 
+print "> "
 short_handle(journalist)
 
 
@@ -18,6 +20,7 @@ short_handle(journalist)
 def handle_5_characters(journalist,characters)
   journalist.count { |handle| handle[1..-1].length == characters } #[1..-1] enlève un cara
 end
+print "> "
 puts "Il y a #{handle_5_characters(journalist,5)} handles qui ont précisément 5 caractères."
 
 
@@ -26,6 +29,7 @@ def upcase_handle(journalist)
   #  journalist.count { |handle| /@([A-Z])/.match?(handle) } ou :
   journalist.count { |handle| handle[1] =~ /[A-Z]/ }
 end
+print "> "
 puts "Il y a #{upcase_handle(journalist)} handles qui commencent par une majuscule après le @."
 
 
@@ -33,26 +37,31 @@ puts "Il y a #{upcase_handle(journalist)} handles qui commencent par une majuscu
 def alphabetical_order(journalist)
   puts "Trié par ordre alphabétique : #{journalist.sort_by{|handle|handle.downcase}}."
 end
+print "> "
 alphabetical_order(journalist)
 
 # Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
 def length_order(journalist)
   puts "Trié par taille : #{journalist.sort_by{|handle|handle.length}}."
 end
+print "> "
 length_order(journalist)
 
 # Quelle est la position dans l'array de la personne @epenser ?
 def find_handle(journalist,user)
   journalist.index(user)
 end
+print "> "
 puts "@epenser ce trouve à la #{find_handle(journalist,"@epenser")}ème position."
 
 # Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère, nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 def hash_taille(journalist)
   hash = journalist.group_by {|handle| handle.length}
 end
+print "> "
 result =hash_taille(journalist)
 
 result.keys.sort.each do |taille| #keys -> donne toute les clés, sort -> odre croissant
+  print "> "
   puts "Handle avec #{taille} caractères : #{result[taille].join(',')}"
 end 
